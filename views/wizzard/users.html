@@ -1,0 +1,84 @@
+<div class="container-fluid">
+	<div class="container-fluid navbar navbar-fixed-top">
+	    <div class="row text-center">
+	        <div class="col-xs-2 p0">
+	        </div>
+	        <div class="col-xs-8 p0">
+	        </div>
+	        <div class="col-xs-2 p0">	            
+	            <a class="home" ng-href="#/wizzard" ng-click="logout()">
+	                <i class="fa fa-sign-out"></i>
+	            </a>
+	        </div>
+	    </div> 
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="wizzard_block">
+				<div class="wizzard_block__body">
+					<div class="wizzard_block__body__header">Users</div>
+					<div class="wizzard_block__body__inner">
+						<div class="form-group wizzard_block__body__inner__buttons">
+							<div class="row">
+								<div class="form-group">
+									<button class="btn btn-success" ng-click="goToUsers()"><i class="fa fa-user"></i></button>
+									<!-- <button class="btn btn-success" ng-click="goToTemplates()"><i class="fa fa-files-o"></i></button> -->
+								</div>
+							</div>
+						</div>						
+						<form novalidate name="addUserForm" ng-submit="saveUser(addUserForm)">
+							<div class="form-group">
+								<input type="email" class="form-control" ng-model="user.name" name="name" required placeholder="Neston email">
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" ng-model="user.password" name="password" required placeholder="Password">
+							</div>
+							<div class="form-group">
+								<select required name="language" id="language" ng-model="user.language" class="form-control">
+									<option ng-repeat="option in languages" value="{{option.key}}">{{option.value}}</option>
+								</select>							
+							</div>
+							<div class="form-group">
+								<select required name="type" id="type" ng-model="user.type" class="form-control">
+									<option ng-repeat="option in types" value="{{option.key}}">{{option.value}}</option>
+								</select>	
+							</div>
+							<div class="form-group">
+								 <div class="checkbox">
+								    <label>
+								      <input type="checkbox" ng-model="user.model" name="model" value="true"> Template
+								    </label>
+								  </div>							
+							</div>							
+							<div class="form-group">
+							    <button class="btn btn-success form-control" ng-disabled="addUserForm.$invalid"><i class="fa fa-plus"></i></button>
+							</div>							
+						</form>
+						<table class="table table-bordered">
+							<tr ng-repeat="user in users">								
+								<td class="text-center text-danger"><a ng-click="goToRoomsToHouse(user)"><i class="fa fa-home"></i></a></td>
+								<!-- <td class="text-center text-danger"><a ng-click="goToObjectsToRooms(user)"><i class="fa fa-object-group"></i></a></td> -->
+								<td class="text-center text-danger"><a ng-click="goToObjectsToControlls(user)"><i class="fa fa-object-group"></i></a></td>
+								<td class="text-center">{{user.name}}</td>
+								<td class="text-center">{{user.type}}</td>
+								<td class="text-center">{{user.language}}</td>
+								<td class="text-center">
+									<form novalidate name="cloneUserForm" ng-submit="cloneUser(cloneUserForm)">
+										<input type="hidden" name="userid" id="userid" ng-model="user.id"></input>
+										<select required name="cloneid" id="cloneid" ng-model="cloneid" class="form-control">												
+											<option ng-show="option.model && option.type == user.type && option.id != user.id" ng-repeat="option in users" value="{{option.id}}">{{option.name}}</option>
+										</select>
+										<div class="form-group">
+										    <button class="btn btn-success form-control" ng-disabled="cloneUserForm.$invalid"><i class="fa fa-files-o"></i></button>
+										</div>										
+									</form>
+								</td>
+								<td class="text-center text-danger" ng-click="removeUser(user)"><i class="fa fa-trash"></i></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

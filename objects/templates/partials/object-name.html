@@ -1,0 +1,13 @@
+<div class="object-name">
+	<span ng-show="item.name && item.category == 'SC'" class="name">{{item.name}}<br></span>
+	<span ng-show="room=='home' || room == 'type'">
+		<span class="icon {{ObjectIconService.getIcon('houses', item.houseIconId).name}}"></span>
+		<span class="icon {{ObjectIconService.getIcon('floors', item.floorIconId).name}}"></span>
+		<span class="icon {{ObjectIconService.getIcon('rooms', item.roomIconId).name}}"></span>
+		<!-- <span>{{item.roomName}}</span> -->
+		<span class="icon" 
+				ng-show="!item.houseIconId && !item.floorIconId && !item.roomIconId"
+				ng-class="{'floors-house':type == 'house', 'floors-complex':type=='complex', 'floors-ap':type=='ap'}"
+			></span>
+	</span>
+</div>

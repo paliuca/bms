@@ -1,0 +1,5 @@
+<i class="fa opened fa-caret-up faa-passing-up faa-fast animated " ng-class="{'': goingUp, 'transparent': !goingUp}"></i>
+
+<i class="figure {{ObjectIconService.getIcon(item.category,item.icon_id).name}}" ng-class="{'active':goingUp || goingDown}"></i>
+
+<i class="fa  closed fa-caret-down faa-passing-down faa-fast animated" ng-class="{'': goingDown, 'transparent': !goingDown}"></i>

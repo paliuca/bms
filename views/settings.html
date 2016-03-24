@@ -1,0 +1,31 @@
+
+
+<div class="container-fluid navbar navbar-fixed-top">
+    <div class="row text-center">
+        <div class="col-xs-4">
+        </div>
+        <div class="col-xs-4">
+            <a class="home">{{TranslateService.get('settings')}}</a>
+        </div>
+        <div class="col-xs-4">
+            <a class="home" ng-href="#/start">
+                <i class="fa fa-home"></i>
+            </a>
+        </div>
+    </div> 
+</div>
+
+<div class="container">
+    <hr>
+    <form novalidate name="editForm" ng-submit="save(editForm)">
+        <div class="form-group" ng-repeat="(key,value) in items">
+            <input class="form-control" ng-model="value" name="{{key}}" value="{{value}}" required>
+        </div>  
+        <div class="form-group">
+            <button type="submit" class="btn-success form-control"  ng-disabled="editForm.$invalid">
+                <i class="fa fa-check"></i>
+            </button>
+        </div>                  
+    </form>
+</div>
+

@@ -1,0 +1,59 @@
+<!-- <form class="form-edit row" ng-show="editorNameEnabled" novalidate name="editNameForm" ng-submit="saveName(editNameForm)">
+	<div class="inner">
+		<div class="col-xs-12 col-md-6">
+			<input type="text" class="form-control input-sm" name="editableText" ng-model="editableText" required>
+		</div>
+		<div class="col-xs-6 col-md-3">
+			<button type="submit" class="btn-success btn-sm save-btn"  ng-disabled="editNameForm.$invalid">
+				<i class="fa fa-check"></i>
+			</button>
+		</div>
+		<div class="col-xs-6 col-md-3">
+			<div class="btn-danger btn-sm cancel-btn" ng-click="disableEditor()">
+				<i class="fa fa-times"></i>
+			</div>
+		</div>
+	</div>
+</form> -->
+
+<span class="object-holder-favorite" ng-show="item.favorite==1"></span>
+
+<form class="form-edit row" ng-show="editorIconEnabled" novalidate name="editIconForm" ng-submit="saveIcon(editIconForm)">
+    <div class="col-xs-6" ng-repeat="icon in iconsArray track by icon.id">
+        <label>
+            <input type="radio" ng-value="icon" name="selectedIcon" ng-model="$parent.selectedIcon" required style="display:none" />
+            <i class="{{icon.name}} select-icon fa-2x" ng-class="{active: $parent.selectedIcon == icon}" ng-show="icon.name"></i>
+        </label>
+    </div>
+    <div class="clearfix"></div>
+	<div class="col-xs-3 col-xs-offset-1">
+		<button type="submit" class="btn-success btn-sm save-btn"  ng-disabled="editIconForm.$invalid">
+			<i class="fa fa-check"></i>
+		</button>
+	</div>
+	<div class="col-xs-3 col-xs-offset-4">
+		<div class="btn-danger btn-sm cancel-btn" ng-click="disableEditor()">
+			<i class="fa fa-times"></i>
+		</div>
+	</div>
+</form>
+
+
+<div class="favorite" ng-show="setfavorite">
+	<table class="table options-table">
+			<td ng-click="enableIconEditor()" ng-show="room == 'room' || room == 'tree' || room == 'house' || room == 'floor'">
+				<i class="fa fa-2x fa-gear"></i>
+			</td>
+			<td ng-show="item.favorite == 1" ng-click="setFavorite(0);">
+				<i class="fa fa-2x fa-star favorite-star"></i>
+			</td>
+			<td ng-show="item.favorite == 0 || item.favorite == null" ng-click="setFavorite(1);">
+				<i class="fa fa-2x fa-star-o favorite-star"></i>
+			</td>
+			<td ng-click="removeFavorite(item);" ng-show="item.favorite == 0 && room=='home'">
+				<i class="fa fa-2x fa-trash-o text-danger"></i>	
+			</td>
+		</tr>
+	</table>
+</div>
+	

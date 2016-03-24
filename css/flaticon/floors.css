@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'floors';
+    src:    url('../fonts/floors.eot?du75rd');
+    src:    url('../fonts/floors.eot?du75rd#iefix') format('embedded-opentype'),
+        url('../fonts/floors.ttf?du75rd') format('truetype'),
+        url('../fonts/floors.woff?du75rd') format('woff'),
+        url('../fonts/floors.svg?du75rd#floors') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="floors-"], [class*=" floors-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'floors' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.floors-01:before {
+    content: "\e900";
+}
+.floors-02:before {
+    content: "\e901";
+}
+.floors-house:before {
+    content: "\e902";
+}
+.floors-complex:before {
+    content: "\e907";
+}
+.floors-ap:before {
+    content: "\e908";
+}
+

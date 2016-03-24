@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "contactors";
+  src:url("../fonts/contactors.eot");
+  src:url("../fonts/contactors.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/contactors.woff") format("woff"),
+    url("../fonts/contactors.ttf") format("truetype"),
+    url("../fonts/contactors.svg#contactors") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+[class^="contactors-"]:before, [class*=" contactors-"]:before,
+[class^="contactors-"]:after, [class*=" contactors-"]:after {   
+  font-family: contactors;
+  font-style: normal;
+}
+
+
+
+
+.contactors-window-1:before {
+    content: "\e901";
+}
+.contactors-window-1.open:before {
+    content: "\e900";
+}
+
+.contactors-door-1:before {
+    content: "\e902";
+}
+
+.contactors-door-1.open:before {
+    content: "\e903";
+}
+

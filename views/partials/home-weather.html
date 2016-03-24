@@ -1,0 +1,36 @@
+<div class="row weather-slide info-tape text-center" ng-class="{active:weatherBar}">
+		<table class="table weather-table" cellpadding="10">
+			<tbody>
+			<tr>
+				<td class="time">
+					<i class="fa fa-calendar"></i>
+					<span>{{day}}</span>					
+				</td>
+				<td>
+					<span class="wi wi-thermometer-exterior wheater-icon"></span><br>
+					<span>{{weather.temperature}}</span><span class="wi wi-degrees"></span>C
+				</td>
+				<td>
+					
+					<span class="wheater-icon"><img src="{{weather.icon}}"></span><br>
+					<span>{{weather.description}}</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="time">
+					<i class="fa fa-clock-o"></i>
+					<span>{{hour}}</span>
+				</td>
+				<td>
+					<span class="wi wi-strong-wind wheater-icon"></span><br>
+					<span>{{weather.wind}}</span>
+				</td>
+				<td>
+					<span class="wi wi-humidity wheater-icon"></span><br>
+					<span>{{weather.humidity}}</span>
+				</td>
+
+			</tr>
+			</tbody>
+		</table>
+</div>	

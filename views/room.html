@@ -1,0 +1,68 @@
+<div class="container-fluid navbar navbar-fixed-top">
+    <div class="row text-center">
+        <div class="col-xs-3 p0">
+            <a class="home" href="" ng-click="toggle()" ng-class="{active:checked}">
+                <i class="fa " ng-class="{'fa-arrow-left':checked, 'fa-arrow-right':!checked}"></i>                
+            </a>      
+            <a class="home pull-right" ng-href="{{backUrl}}">
+                <i class="fa fa-chevron-left"></i>
+            </a>
+        </div>
+        <div class="col-xs-6 p0">
+            <a class="home">
+            	{{title}}
+            </a>
+        </div>
+        <div class="col-xs-3 p0">
+            <a class="home pull-left" ng-click="setfavorite = !setfavorite" ng-init="setfavorite = false" ng-show="items.length > 0">
+                <i class="fa fa-star-o favorite-star" ng-show="!setfavorite"></i>
+                <i class="fa fa-star favorite-star" ng-show="setfavorite"></i>
+            </a>
+            <a class="home" ng-href="#/start">
+                <i class="fa fa-home"></i>
+            </a>            
+        </div>
+    </div> 
+</div>
+<!-- pageslide ps-open="checked" ps-side="left" ps-push="true" ps-custom-top="40px" ps-size="40px" -->
+
+	<div class="room-menu" ng-class="{'room-menu-show':checked}">
+		<div class="room-menu-item">
+			<a ng-href="{{baseUrl}}{{ checked ? '?q=' + checked : !checked }}" ng-class="{active:!typeId}">
+				<i class="figure fa floors-ap"></i>
+			</a>
+		</div>
+		<div class="room-menu-item">
+			<a ng-href="{{baseUrl}}/SC{{ checked ? '?q=' + checked : !checked }}" ng-class="{active:typeId == 'SC'}">
+				<i class="figure fa fa-gear"></i>
+			</a>
+		</div>
+		<div class="room-menu-item">
+			<a ng-href="{{baseUrl}}/L{{ checked ? '?q=' + checked : !checked }}" ng-class="{active:typeId == 'L'}">
+				<i class="figure fa fa-lightbulb-o"></i>
+			</a>
+		</div>
+		<!-- <div class="room-menu-item">
+			<a ng-href="{{baseUrl}}/RM{{ checked ? '?q=' + checked : !checked }}" ng-class="{active:typeId == 'RM'}">
+				<i class="figure fa fa-bars"></i>
+			</a>
+		</div> -->
+		<div class="room-menu-item">
+			<a ng-href="{{baseUrl}}/H{{ checked ? '?q=' + checked : !checked }}" ng-class="{active:typeId == 'H'}">
+				<i class="figure wi wi-snowflake-cold"></i>
+			</a>
+		</div>
+		<!-- <div class="room-menu-item">
+			<a ng-href="{{baseUrl}}/CM{{ checked ? '?q=' + checked : !checked }}" ng-class="{active:typeId == 'CM'}">
+				<i class="figure contactors-door-1"></i>
+			</a>
+		</div> -->
+	</div>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div ng-include="'./views/partials/objects.html'"></div>
+    </div>
+</div>

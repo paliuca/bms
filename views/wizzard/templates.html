@@ -1,0 +1,351 @@
+<div class="container-fluid">
+	<div class="container-fluid navbar navbar-fixed-top">
+	    <div class="row text-center">
+	        <div class="col-xs-2 p0">
+	        </div>
+	        <div class="col-xs-8 p0">
+	        </div>
+	        <div class="col-xs-2 p0">	            
+	            <a class="home" ng-href="#/wizzard" ng-click="logout()">
+	                <i class="fa fa-sign-out"></i>
+	            </a>
+	        </div>
+	    </div> 
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="wizzard_block">
+				<div class="wizzard_block__body">
+					<div class="wizzard_block__body__header">Templates</div>
+					<div class="wizzard_block__body__inner">
+						<div class="form-group wizzard_block__body__inner__buttons">
+							<div class="row">
+								<div class="form-group">
+									<button class="btn btn-success" ng-click="goToUsers()"><i class="fa fa-user"></i></button>
+									<button class="btn btn-success" ng-click="goToTemplates()"><i class="fa fa-files-o"></i></button>
+								</div>
+							</div>
+						</div>						
+						<form novalidate name="templateForm" ng-submit="saveTemplate(templateForm)">
+							<div class="form-group">
+								<label>Template name</label>
+								<input type="text" class="form-control" ng-model="template.name" name="name" required>
+							</div>
+							<div class="form-group">
+							<label>Template type</label>
+								<select required name="type" id="type" ng-model="template.type" class="form-control">
+									<option ng-repeat="option in types" value="{{option.key}}">{{option.value}}</option>
+								</select>	
+							</div>
+							<div ng-show="template.type == 'ap'">
+								<div class="row">
+									<div class="col-md-6 col-md-offset-3">
+										<div class="form-group">
+											<label>Room name</label>
+											<input key="text" class="form-control" ng-model="roomName" placeholder="Bedroom">
+										</div>
+										<div class="form-group">
+											<label>Choose icon</label>
+											<div class="row">
+										        <div class="col-xs-3" ng-repeat="icon in ObjectIconService.getIcons('rooms') track by icon.id">
+										            <label>
+										                <input type="radio" ng-value="icon" ng-model="$parent.roomIcon" style="display:none"/>
+										                <i class="fa-2x {{icon.name}} select-icon" ng-class="{'select-icon--active': $parent.roomIcon == icon}" ng-show="icon.name"></i>
+										            </label>
+										        </div>
+									        </div>
+								        </div>								
+										<div class="form-group">
+											<button type="submit" ng-disabled="!roomName || !roomIcon" class="btn btn-default form-control" ng-click="addApRoom()">
+												<i class="fa fa-plus"></i>
+											</button>
+										</div>
+									</div>
+									<div class="wizzard_block__body">
+										<div class="wizzard_block__body__inner">
+											<div class="row houses">
+												<div class="col-xs-12" ng-show="rooms.length" ng-repeat="room in rooms">
+													<div class="houses__house">
+														<div class="row houses__house__floor">
+															<div class="col-xs-8">
+																<div class="houses__house__floor__header">
+																	<span class="{{ObjectIconService.getIcon('rooms', room.icon_id).name}}"></span>&nbsp;{{room.name}}
+																</div>
+															</div>
+															<div class="col-xs-4 text-center">
+																<i class="fa fa-trash  text-danger houses__house__delete" ng-click="deleteApRoom(room)"></i>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>						
+							</div>					
+							<div ng-show="template.type == 'house'">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Floor name</label>
+											<input type="text" class="form-control" ng-model="floorName" placeholder="Ground floor">
+										</div>
+										<div class="form-group">
+											<label>Choose icon</label>
+											<div class="row">
+										        <div class="col-xs-3" ng-repeat="icon in ObjectIconService.getIcons('floors') track by icon.id">
+										            <label>
+										                <input type="radio" ng-value="icon" ng-model="$parent.floorIcon" style="display:none"/>
+										                <i class="fa-2x {{icon.name}} select-icon" ng-class="{'select-icon--active': $parent.floorIcon == icon}" ng-show="icon.name"></i>
+										            </label>
+										        </div>
+											</div>
+								        </div>
+								        <div class="form-group">				
+											<button type="submit" ng-disabled="!floorName || !floorIcon" class="btn btn-default form-control" ng-click="addHouseFloor()">
+												<i class="fa fa-plus"></i>
+											</button>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Choose floor</label>
+											<select class="form-control"
+												name="floor" 
+												ng-options="floor.name for floor in floors"
+												ng-model="floor">
+											</select>
+										</div>
+										<div class="form-group">
+											<label>Room name</label>
+											<input type="text" ng-disabled="!floor" class="form-control" ng-model="roomName" placeholder="Bedroom">
+										</div>
+										<div class="form-group">
+											<label>Choose icon</label>
+											<div class="row">
+										        <div class="col-xs-3" ng-repeat="icon in ObjectIconService.getIcons('rooms') track by icon.id">
+										            <label>
+										                <input type="radio" ng-value="icon" ng-model="$parent.roomIcon" style="display:none"/>
+										                <i class="fa-2x {{icon.name}} select-icon" ng-class="{'select-icon--active': $parent.roomIcon == icon}" ng-show="icon.name"></i>
+										            </label>
+										        </div>
+											</div>
+								        </div>								
+										<div class="form-group">
+											<button type="submit" ng-disabled="!roomName || !floor || !roomIcon" class="btn btn-default form-control" ng-click="addHouseRoom()">
+												<i class="fa fa-plus"></i>
+											</button>
+										</div>
+									</div>
+									<div class="wizzard_block__body">
+										<div class="wizzard_block__body__inner">
+											<div class="row houses" ng-show="floors.length">
+												<div class="col-xs-12" ng-repeat="floor in floors">
+													<div class="houses__house">
+														<div class="row houses__house__floor">
+															<div class="col-xs-8">
+																<div class="houses__house__floor__header">
+																	<span class="{{ObjectIconService.getIcon('floors', floor.icon_id).name}}"></span>&nbsp;{{floor.name}}
+																</div>
+															</div>
+															<div class="col-xs-4 text-center">
+																<i class="fa fa-trash  text-danger houses__house__delete" 
+																	ng-click="deleteHouseFloor(floor)">
+																</i>
+															</div>
+														</div>				
+														<div ng-show="floor.rooms.length" ng-repeat="room in floor.rooms">
+															<div class="row houses__house__room">
+																<div class="col-xs-8">
+																	<div class="houses__house__room__header">
+																		<span class="{{ObjectIconService.getIcon('rooms', room.icon_id).name}}"></span>&nbsp;{{room.name}}
+																	</div>
+																</div>
+																<div class="col-xs-4 text-center">
+																	<i class="fa fa-trash text-danger houses__house__delete" 
+																		ng-click="deleteHouseRoom(floor, room)">
+																	</i>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div ng-show="template.type == 'complex'">
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label>House name</label>
+											<input type="text" class="form-control" ng-model="houseName" placeholder="Guest house">
+										</div>
+										<div class="form-group">
+											<label>Choose icon</label>
+											<div class="row">
+										        <div class="col-xs-3" ng-repeat="icon in ObjectIconService.getIcons('houses') track by icon.id">
+										            <label>
+										                <input type="radio" ng-value="icon" ng-model="$parent.houseIcon" style="display:none"/>
+										                <i class="fa-2x {{icon.name}} select-icon" ng-class="{'select-icon--active': $parent.houseIcon == icon}" ng-show="icon.name"></i>
+										            </label>
+										        </div>										
+											</div>
+								        </div>
+								        <div class="form-group">
+											<button type="submit" ng-disabled="!houseName || !houseIcon" class="btn btn-default form-control" ng-click="addComplexHouse()">
+												<i class="fa fa-plus"></i>
+											</button>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label>Choose house</label>
+											<select class="form-control"
+												name="house" 
+												ng-options="house.name for house in houses"
+												ng-model="house">
+											</select>
+										</div>
+										<div class="form-group">
+											<label>Floor name</label>
+											<input type="text" ng-disabled="!house" class="form-control" ng-model="floorName" placeholder="Ground floor">
+										</div>
+										<div class="form-group">
+											<label>Choose icon</label>
+											<div class="row">
+										        <div class="col-xs-3" ng-repeat="icon in ObjectIconService.getIcons('floors') track by icon.id">
+										            <label>
+										                <input type="radio" ng-value="icon" ng-model="$parent.floorIcon" style="display:none"/>
+										                <i class="fa-2x {{icon.name}} select-icon" ng-class="{'select-icon--active': $parent.floorIcon == icon}" ng-show="icon.name"></i>
+										            </label>
+										        </div>										
+											</div>
+								        </div>
+								        <div class="form-group">
+											<button type="submit" ng-disabled="!floorName || !house || !floorIcon" class="btn btn-default form-control" ng-click="addComplexFloor()">
+												<i class="fa fa-plus"></i>
+											</button>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label>Choose house</label>
+											<select class="form-control"
+												name="house" 
+												ng-options="house.name for house in houses"
+												ng-model="house">
+											</select>
+										</div>
+										<div class="form-group">
+											<label>Choose floor</label>
+										    <select 
+										    	name="floor"
+										    	class="form-control"
+										    	ng-options="floor.name for floor in house.floors"
+										     	ng-model="floor"
+												ng-disabled="!house">
+											</select>
+										</div>
+										<div class="form-group">
+											<label>Room name</label>
+											<input type="text" ng-disabled="!floor" class="form-control" name="roomName" ng-model="roomName" placeholder="Bedroom">
+										</div>
+										<div class="form-group">
+											<label>Choose icon</label>
+											<div class="row">
+										        <div class="col-xs-3" ng-repeat="icon in ObjectIconService.getIcons('rooms') track by icon.id">
+										            <label>
+										                <input type="radio" ng-value="icon" ng-model="$parent.roomIcon" style="display:none"/>
+										                <i class="fa-2x {{icon.name}} select-icon" ng-class="{'select-icon--active': $parent.roomIcon == icon}" ng-show="icon.name"></i>
+										            </label>
+										        </div>
+									        </div>
+								        </div>								
+										<div class="form-group">
+											<button type="submit" ng-disabled="!roomName || !floor || !house || !roomIcon" class="btn btn-default form-control" ng-click="addComplexRoom()">
+												<i class="fa fa-plus"></i>
+											</button>
+										</div>
+									</div>							
+									<div class="wizzard_block__body">
+										<div class="wizzard_block__body__inner">
+											<div class="row houses">
+												<div class="col-xs-12" ng-show="houses.length" ng-repeat="house in houses">
+													<div class="houses__house">
+														<div class="row houses__house__floor">
+															<div class="col-xs-8">
+																<div class="houses__house__floor__header">
+																	<span class="{{ObjectIconService.getIcon('houses', house.icon_id).name}}"></span>&nbsp;{{house.name}}
+																</div>
+															</div>
+															<div class="col-xs-4 text-center">
+																<i class="fa fa-trash  text-danger houses__house__delete" 
+																	ng-click="deleteComplexHouse(house)">
+																</i>
+															</div>
+														</div>				
+														<div ng-show="house.floors.length" ng-repeat="floor in house.floors">
+															<div class="row houses__house__room">
+																<div class="col-xs-8">
+																	<div class="houses__house__room__header">
+																		<span class="{{ObjectIconService.getIcon('floors', floor.icon_id).name}}"></span>&nbsp;{{floor.name}}
+																	</div>
+																</div>
+																<div class="col-xs-4 text-center">
+																	<i class="fa fa-trash text-danger houses__house__delete" 
+																		ng-click="deleteComplexFloor(house, floor)">
+																	</i>
+																</div>
+															</div>
+															<div ng-show="floor.rooms.length" ng-repeat="room in floor.rooms">
+																<div class="row houses__house__room houses__house__room--room">
+																	<div class="col-xs-8">
+																		<div class="houses__house__room__header houses__house__room--room__header">
+																			<span class="{{ObjectIconService.getIcon('rooms', floor.icon_id).name}}"></span>&nbsp;{{room.name}}
+																		</div>
+																	</div>
+																	<div class="col-xs-4 text-center">
+																		<i class="fa fa-trash text-danger houses__house__delete" 
+																			ng-click="deleteComplexRoom(house, floor, room)">
+																		</i>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>	
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" required  ng-model="done" name="done">Configuration done
+								</label>
+								</div>							
+							</div>
+							<div class="form-group">
+							    <button class="btn btn-success form-control" ng-disabled="templateForm.$invalid" ng-show="template.id"><i class="fa fa-save"></i></button>
+							    <button class="btn btn-success form-control" ng-disabled="templateForm.$invalid" ng-hide="template.id"><i class="fa fa-plus"></i></button>
+							</div>
+						</form>
+						<table class="table table-bordered">
+							<tr ng-repeat="template in templates">
+								<td class="text-center text-warning" ng-click="goToObjectsToTemplate(template)"><i class="fa fa-file-o"></i></td>
+								<td class="text-center">{{template.name}}</td>
+								<td class="text-center">{{template.type}}</td>								
+								<td class="text-center text-warning" ng-click="editTemplate(template)"><i class="fa fa-edit"></i></td>
+								<td class="text-center text-danger" ng-click="removeTemplate(template)"><i class="fa fa-trash"></i></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

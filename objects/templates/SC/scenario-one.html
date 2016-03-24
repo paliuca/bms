@@ -1,0 +1,26 @@
+
+<div class="row text-center">
+	<div class="object">
+		<div ng-include="'objects/templates/partials/edit-object-form.html'"></div>
+		<div class="col-xs-6 column">
+			<table class="table name-table">
+				<tr>
+					<td>
+						<div ng-include="'objects/templates/partials/object-name.html'"></div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-xs-6 column">
+			<table class="table name-table">
+				<tr>
+					<td ng-click="onChange()">
+						<i class="figure {{ObjectIconService.getIcon(item.category,item.icon_id).name}}"
+						ng-class="{'faa-pulse animated':loading}"
+						></i>
+					</td>
+				</tr>
+			</table>		
+		</div>
+	</div>
+</div>

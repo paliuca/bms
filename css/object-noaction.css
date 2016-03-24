@@ -1,0 +1,59 @@
+
+
+.object-noaction .in{
+	height: 110px;
+}
+
+
+.object-noaction .title{
+	height: 110px;
+	display: table;
+	overflow: hidden;
+	width: 100%;
+}
+.object-noaction .title .inner{
+	display: table-cell; vertical-align: middle;
+}
+
+.object-noaction .icon .inner{
+	display: table-cell; vertical-align: middle;
+}
+
+.object-noaction .icon .figure.active{
+	color:#F1DD2A;
+}
+.object-noaction .icon{
+	height: 110px;
+	display: table;
+	overflow: hidden;
+	width: 100%;	
+}
+
+
+.object-noaction .buttons .off .btn{
+	border: 0px;
+	
+}
+.object-noaction  .buttons .btn span{
+	display: table-cell; vertical-align: middle;
+	color: #fff !important;
+	font-size: 10px;
+}
+
+
+.object-noaction .buttons .on:after, .object-noaction .buttons .off:after{
+	content: "";
+	position: absolute;
+	height: 5px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    opacity: 0.4;
+}
+.object-noaction .buttons .on.active:after, .object-noaction .buttons .off.active:after{
+	opacity: 1;
+}
+.object-noaction .buttons .on.active span, .object-noaction .buttons .off.active span{
+	font-weight: bold;	
+}
+

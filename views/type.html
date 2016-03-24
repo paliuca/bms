@@ -1,0 +1,102 @@
+
+<div class="container-fluid navbar navbar-fixed-top">
+    <div class="row text-center">
+        <div class="col-xs-3 p0">
+            <a class="home" href="" ng-click="toggle()" ng-class="{active:checked}">
+                <i class="fa " ng-class="{'fa-arrow-left':checked, 'fa-arrow-right':!checked}"></i>                
+            </a>
+            <a class="home pull-right" ng-href="#/start">
+                <i class="fa fa-chevron-left"></i>
+            </a>
+        </div>
+        <div class="col-xs-6 p0">
+            <a class="home" ng-href="{{baseUrl}}">{{title}}</a>
+        </div>
+        <div class="col-xs-3 p0">
+            <a class="home" ng-href="#/start">
+                <i class="fa fa-home"></i>
+            </a>
+        </div>
+    </div> 
+</div>
+
+
+
+<div class="type-menu" ng-class="{'type-menu-show':checked}">
+    <div class="type-menu-complex" ng-if="type == 'complex'">
+        <ul class="list-1">
+            <li class="type-menu-item">
+                <a ng-href="{{baseUrl}}{{ checked ? '?q=' + checked : !checked }}" ng-class="{active:!routes.houseId && !routes.floorId && !routes.roomId}">
+                    <i class="figure fa floors-complex"></i>
+                </a>
+            </li>
+        </ul>
+        <ul ng-repeat="house in zones" class="list-1">
+            <li class="type-menu-item">
+                <a ng-href="{{baseUrl}}/{{house.id}}{{ checked ? '?q=' + checked : !checked }}" ng-class="{active:routes.houseId == house.id}">
+                    <i class="figure {{ObjectIconService.getIcon('houses', house.icon_id).name}}"></i>
+                </a>
+            </li>
+            <ul ng-repeat="floor in house.floors" class="list-2">
+                <li class="type-menu-item">
+                    <a ng-href="{{baseUrl}}/{{house.id}}/{{floor.id}}{{ checked ? '?q=' + checked : !checked }}" ng-class="{active:routes.floorId == floor.id}">
+                        <i class="figure {{ObjectIconService.getIcon('floors', floor.icon_id).name}}"></i>
+                    </a>
+                </li>
+                <ul class="list-3">
+                    <li class="type-menu-item" ng-repeat="room in floor.rooms">
+                        <a ng-href="{{baseUrl}}/{{house.id}}/{{floor.id}}/{{room.id}}{{ checked ? '?q=' + checked : !checked }}" ng-class="{active:routes.roomId == room.id}">
+                            <i class="figure {{ObjectIconService.getIcon('rooms', room.icon_id).name}}"></i>
+                        </a>
+                    </li>
+                </ul>
+            </ul>
+        </ul>
+    </div>
+    <div class="type-menu-complex" ng-if="type == 'house'">
+        <ul class="list-1">
+            <li class="type-menu-item">
+                <a ng-href="{{baseUrl}}{{ checked ? '?q=' + checked : !checked }}" ng-class="{active:!routes.houseId && !routes.floorId && !routes.roomId}">
+                    <i class="figure floors-house"></i>
+                </a>
+            </li>
+        </ul>
+        <ul ng-repeat="floor in zones" class="list-1">
+            <li class="type-menu-item">
+                <a ng-href="{{baseUrl}}/0/{{floor.id}}{{ checked ? '?q=' + checked : !checked }}" ng-class="{active:routes.floorId == floor.id}">
+                    <i class="figure {{ObjectIconService.getIcon('floors', floor.icon_id).name}}"></i>
+                </a>
+            </li>
+            <ul class="list-2">
+                <li class="type-menu-item" ng-repeat="room in floor.rooms">
+                    <a ng-href="{{baseUrl}}/0/{{floor.id}}/{{room.id}}{{ checked ? '?q=' + checked : !checked }}" ng-class="{active:routes.roomId == room.id}">
+                        <i class="figure {{ObjectIconService.getIcon('rooms', room.icon_id).name}}"></i>
+                    </a>
+                </li>
+            </ul>
+        </ul>
+    </div>
+    <div class="type-menu-complex" ng-if="type == 'ap'">
+        <ul class="list-1">
+            <li class="type-menu-item">
+                <a ng-href="{{baseUrl}}{{ checked ? '?q=' + checked : !checked }}" ng-class="{active:!routes.houseId && !routes.floorId && !routes.roomId}">
+                    <i class="figure floors-ap"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="list-1">
+            <li class="type-menu-item" ng-repeat="room in zones">
+                <a ng-href="{{baseUrl}}/0/0/{{room.id}}{{ checked ? '?q=' + checked : !checked }}" ng-class="{active:routes.roomId == room.id}">
+                    <i class="figure {{ObjectIconService.getIcon('rooms', room.icon_id).name}}"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div ng-include="'./views/partials/objects.html'"></div>
+    </div>
+</div>

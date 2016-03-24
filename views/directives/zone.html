@@ -1,0 +1,57 @@
+<div class="home-menu">
+    <form class="form-edit form-edit--name row" ng-show="nameEditorEnabled" novalidate name="editNameForm" ng-submit="saveZone(editNameForm)">
+            <div class="col-xs-6">
+                <input type="text" class="form-control edit-input input-sm" name="zoneName" ng-model="zoneName" required>
+            </div>
+            <div class="col-xs-3">
+                <button type="submit" class="btn-success btn-sm save-btn"  ng-disabled="editNameForm.$invalid">
+                    <i class="fa fa-check"></i>
+                </button>
+            </div>
+            <div class="col-xs-3">
+                <div class="btn-danger btn-sm cancel-btn" ng-click="disableEditor()">
+                    <i class="fa fa-times"></i>
+                </div>
+            </div>
+    </form>
+
+    <form class="form-edit row" ng-show="editorIconEnabled" novalidate name="editIconForm" ng-submit="saveZone(editIconForm)">
+        <div class="col-xs-6" ng-repeat="icon in iconsArray track by icon.id">
+            <label>
+                <input type="radio" ng-value="icon" name="selectedIcon" ng-model="$parent.selectedIcon" required style="display:none" />
+                <i class="{{icon.name}} select-icon fa-2x" ng-class="{active: $parent.selectedIcon == icon}"></i>
+            </label>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-xs-4 col-xs-offset-1">
+            <button type="submit" class="btn-success btn-sm save-btn"  ng-disabled="editIconForm.$invalid">
+                <i class="fa fa-check"></i>
+            </button>
+        </div>
+        <div class="col-xs-4 col-xs-offset-2">
+            <div class="btn-danger btn-sm cancel-btn" ng-click="disableEditor()">
+                <i class="fa fa-times"></i>
+            </div>
+        </div>
+    </form>
+
+    <div class="col-xs-2 col" ng-show="orderBar">
+        <span class="fa fa-2x my-handle"><i class="fa fa-bars"></i></span> 
+    </div>    
+    <div class="col-xs-2 col" ng-show="!orderBar">
+        <a class="body" ng-click="enableIconEditor()">             
+            <i ng-show="item.icon_id" class="{{ObjectIconService.getIcon(zone, item.icon_id).name}} fa-2x"></i>
+            <i ng-show="!item.icon_id" class="fa fa-edit fa-2x"></i>
+        </a>
+    </div>
+    <div class="col-xs-8 col">
+        <a class="body" ng-href="{{link}}">
+            <span class="title">{{item.name}}</span>
+        </a>
+    </div>
+    <div class="col-xs-2 col">
+        <a class="body" ng-click="enableNameEditor(item.name)">
+            <i class="fa fa-edit fa-2x"></i>
+        </a>
+    </div>    
+</div>

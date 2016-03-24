@@ -1,0 +1,41 @@
+<div class="container-fluid navbar navbar-fixed-top">
+    <div class="row text-center">
+        <div class="col-xs-3 p0">
+            <a class="home" ng-href="#/start" ng-click="logOut()">
+                <i class="fa fa-sign-out"></i>
+            </a>
+            <a class="home pull-right" ng-href="#/sessions">
+                <i class="fa fa-users"></i>
+            </a>         
+        </div>
+        <div class="col-xs-6 p0">
+            <a class="home">{{title}}</a>
+        </div>
+        <div class="col-xs-3 p0">   
+            <a class="home" ng-click="setfavorite = !setfavorite" ng-init="setfavorite = false" ng-show="items.length>0">
+                <i class="fa fa-star-o favorite-star" ng-show="!setfavorite"></i>
+                <i class="fa fa-star favorite-star" ng-show="setfavorite"></i>
+            </a>
+        </div>
+    </div>
+</div>          
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-2 pull-right">
+			<h3 class="text-center">
+			<i class=" wi wi-day-fog wi-fw fa-1x weather-bar"
+				ng-class="{active:weatherBar, inactive:!weatherBar}"
+				ng-click="weatherBar=!weatherBar"
+                ng-init="weatherBar = false"
+			></i>
+			</h3>
+		</div>
+	</div>
+	<div ng-include="'./views/partials/home-weather.html'"></div>
+	
+	<div ng-include="'./views/partials/home-menu.html'"></div>
+	<div class="row">
+		<div ng-include="'./views/partials/objects.html'"></div>
+	</div>
+</div>
+

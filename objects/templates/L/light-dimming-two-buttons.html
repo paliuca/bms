@@ -1,0 +1,37 @@
+<div class="row text-center">
+	<div class="object">
+		<div ng-include="'objects/templates/partials/edit-object-form.html'"></div>
+		<div class="col-xs-6 column">
+			<table class="table name-table">
+				<tr ng-show="room=='home' || room == 'type'">
+					<td>
+						<div ng-include="'objects/templates/partials/object-name.html'"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table class="table name-table">
+							<tr>
+								<td ng-click="onChange('down')">
+									<span class="fa fa-lg fa-minus light-down"></span>
+								</td>
+								<td ng-click="onChange('up')">
+									<span class="fa fa-lg fa-plus light-up"></span>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-xs-6 column">
+			<table class="table name-table">
+				<tr>
+					<td>
+						<div ng-include="'objects/templates/L/icons/index.html'"></div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

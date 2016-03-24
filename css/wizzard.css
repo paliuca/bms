@@ -1,0 +1,125 @@
+.subtitle, .wizzard_block__complex__title, .wizzard_block__complex__house__title, .wizzard_block__complex__house__floor__title, .wizzard_block__complex__house__floor__room__title, .wizzard_block__house__title, .wizzard_block__house__floor__title, .wizzard_block__house__floor__room__title, .wizzard_block__floor__title, .wizzard_block__floor__room__title, .wizzard_block__room__title {
+  padding: 10px;
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+  color: rgba(0, 0, 0, 0.7); }
+
+.wizzard_block span, .wizzard_block td {
+  color: #000; }
+
+.wizzard_block {
+  background-color: #fff;
+  margin-bottom: 10px; }
+  .wizzard_block ul {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    list-style-type: none; }
+    .wizzard_block ul li {
+      color: rgba(0, 0, 0, 0.7);
+      margin: 5px 0;
+      padding: 5px;
+      background-color: #ccc; }
+  .wizzard_block__body__header {
+    padding: 10px;
+    text-align: center;
+    background: #5F9EDF;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif; }
+  .wizzard_block__body__inner {
+    padding: 15px; }
+    .wizzard_block__body__inner .btn {
+      border-radius: 0; }
+    .wizzard_block__body__inner .btn-success {
+      background-color: rgba(95, 158, 223, 0.8);
+      border-color: #5F9EDF; }
+    .wizzard_block__body__inner label {
+      color: rgba(0, 0, 0, 0.7); }
+    .wizzard_block__body__inner__buttons {
+      margin-top: 15px; }
+  .wizzard_block__objects {
+    border: 1px solid transparent; }
+    .wizzard_block__objects__header {
+      font-size: 20px;
+      color: black;
+      padding-left: 10px;
+      cursor: pointer; }
+  .wizzard_block__complex {
+    border: 1px solid rgba(0, 0, 0, 0.5); }
+    .wizzard_block__complex__house {
+      margin-left: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.5); }
+      .wizzard_block__complex__house__floor {
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        margin-left: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        margin-right: 10px; }
+        .wizzard_block__complex__house__floor__room {
+          border: 1px solid rgba(0, 0, 0, 0.5);
+          margin-left: 10px;
+          margin-right: 10px; }
+          .wizzard_block__complex__house__floor__room__objects {
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            margin: 0 10px 10px; }
+  .wizzard_block__house {
+    border: 1px solid rgba(0, 0, 0, 0.5); }
+    .wizzard_block__house__floor {
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      margin-left: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      margin-right: 10px; }
+      .wizzard_block__house__floor__room {
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        margin-left: 10px;
+        margin-right: 10px; }
+        .wizzard_block__house__floor__room__objects {
+          border: 1px solid rgba(0, 0, 0, 0.5);
+          margin: 0 10px 10px; }
+  .wizzard_block__floor {
+    border: 1px solid rgba(0, 0, 0, 0.5); }
+    .wizzard_block__floor__room {
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      margin-left: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      margin-right: 10px; }
+      .wizzard_block__floor__room__objects {
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        margin: 0 10px 10px; }
+  .wizzard_block__room {
+    border: 1px solid rgba(0, 0, 0, 0.5); }
+    .wizzard_block__room__objects {
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      margin: 0 10px 10px; }
+
+.houses {
+  color: black;
+  margin-bottom: 20px; }
+  .houses__house {
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px; }
+    .houses__house__delete {
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      padding: 5px; }
+    .houses__house__floor {
+      padding: 5px 0; }
+      .houses__house__floor__header {
+        padding-left: 10px; }
+    .houses__house__room {
+      padding: 5px 0; }
+      .houses__house__room__header {
+        padding-left: 20px; }
+      .houses__house__room--room {
+        padding: 5px 0; }
+        .houses__house__room--room__header {
+          padding-left: 30px; }
+
+.select-icon {
+  color: #5F9EDF; }
+  .select-icon--active {
+    color: #d9534f; }

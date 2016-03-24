@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript">
+            var timerStart = Date.now();
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" type="image/png" href="favicon.png">    
+        <title>BMS</title>
+        <base href="/">
+        <link rel="stylesheet" type="text/css" href="./dist/css/bundle.min.css">
+        
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        
+    </head>
+    <body>
+        <div ng-app="arena">
+            <toast></toast>
+            <div ng-view></div>
+        </div>
+        <script src="./dist/js/libs/angular/angular.min.js"></script>     
+        <script src="./dist/js/libs/angular/angular-route.min.js"></script>
+        <script src="./dist/js/libs/angular/angular-animate.min.js"></script>  
+        <script src="./dist/js/libs/angular/angular-cookies.min.js"></script>  
+        <script src="./dist/js/libs/angular/angular-sanitize.min.js"></script>  
+        <script src="./dist/js/libs/angular/angular-touch.min.js"></script>
+        <script src="./dist/js/libs/angular/angular-resource.min.js"></script>
+        <script src="./dist/js/libs/angular/ui-bootstrap-custom-tpls-1.1.1.min.js"></script>  
+
+        <script src="./dist/js/libs/moment-with-locales.js"></script>  
+
+        <script src="./dist/js/libs/jquery-1.11.3.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="./dist/js/libs/underscore-min.js"></script>            
+        <script src="./dist/js/libs/Sortable.js"></script>
+        <script src="./dist/js/libs/ng-sortable.js"></script>               
+        <script src="./dist/js/libs/ngToast.min.js"></script>        
+        <script src="./dist/js/libs/roundProgress.min.js"></script>        
+        <script src="./dist/js/libs/rzslider.js"></script>
+
+        <script src="./dist/js/libs/hammer.min.js"></script>        
+        <script src="./dist/js/libs/angular.hammer.js"></script>
+                
+        <script src="./dist/js/bundle.js"></script>
+    </body>
+        <script type="text/javascript">
+             /*$(document).ready(function() {
+                 console.log("Time until DOMready: ", Date.now()-timerStart);
+             });
+             $(window).load(function() {
+                 console.log("Time until everything loaded: ", Date.now()-timerStart);
+             });*/
+        </script>    
+</html>

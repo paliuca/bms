@@ -1,0 +1,44 @@
+<div class="row text-center">
+	<div class="object">
+		<div ng-include="'objects/templates/partials/edit-object-form.html'"></div>
+		<div class="col-xs-6 column">		
+			<table class="table name-table">
+				<tr ng-show="room=='home' || room == 'type'">
+					<td>
+						<div ng-include="'objects/templates/partials/object-name.html'"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span
+							class="switch" 
+							ng-click="item.live.ModuleValue=item.live.ModuleValue==100?0:100; onChange()" 
+							ng-class="{ checked:item.live.ModuleValue == 100 }" 
+							item="item"
+							ng-model="item.live.ModuleValue"
+							>
+							<small></small>
+							<input type="checkbox" 
+									ng-model="item.live.ModuleValue" 
+									style="display:none" 
+							>
+							<span class="switch-text">
+								<span class="on"><span class="fa fa-minus fa-rotate-90"></span></span>
+								<span class="off"><span class="fa fa-circle-o"></span></span>
+							</span>
+						</span>						
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-xs-6 column">
+			<table class="table name-table">
+				<tr>
+					<td>
+						<div ng-include="'objects/templates/L/icons/index.html'"></div>
+					</td>
+				</tr>
+			</table>		
+		</div>
+	</div>
+</div>

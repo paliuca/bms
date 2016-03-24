@@ -1,0 +1,11 @@
+<div ng-switch="ObjectIconService.getIcon(item.category,item.icon_id).type" style="position:relative">
+	<div ng-switch-when="progress-round-01">
+		<div ng-include="'objects/templates/L/icons/progress-round-01.html'"></div>
+	</div>
+	<div ng-switch-when="progress-bar-horisontal-01">
+		<div ng-include="'objects/templates/L/icons/progress-bar-horisontal-01.html'"></div>
+	</div>
+	<div ng-switch-when="icon">
+		<div ng-include="'objects/templates/L/icons/icon.html'"></div>
+	</div>
+</div>

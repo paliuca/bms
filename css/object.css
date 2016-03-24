@@ -1,0 +1,216 @@
+
+.object-holder-favorite{
+    position: relative;
+    text-align: center;
+}
+.object-holder-favorite:after{
+	content: "\f005";
+	color:#F1DD2A !important;
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	opacity: 0.1;
+	position: absolute;
+	right: 0;
+	font-size: 2em;
+}
+
+
+.object .favorite{
+	position: absolute !important;
+	height: 100%;
+    border: 1px solid #fff;
+    width: 100%;
+    z-index: 9990;
+    background-color: rgba(52,107,138,0.9);
+}
+
+.favorite-star{
+	color:#F1DD2A !important;
+}
+
+
+.form-edit{
+	z-index: 9999 !important;
+	top:0px !important;
+	left: 15px !important;
+    position: absolute !important;
+    height: 145px!important;
+    width: 100% !important;
+    background-color: rgba(52,107,138,0.8);
+    padding:10px 0 !important;
+    overflow-y: scroll;
+}
+
+.form-edit--name{
+	height: 100% !important;
+	overflow:hidden !important;
+}
+
+
+.form-edit .select-icon{
+	color: #c9302c !important;	
+}
+
+.form-edit .select-icon.active{
+	color: #449d44 !important;
+}
+
+.form-edit .selectedIcon{
+	padding: 10px;
+}
+
+
+.form-edit button{
+	width: 100% !important;
+	border: 0 !important;
+}
+
+.form-edit button:disabled{
+	background-color: #ccc !important;
+}
+
+
+
+.object{
+	height: 110px;
+	position: relative;	
+	background-color: rgba(52, 107, 138, 0.7);
+	margin: 0px 2px 2px 1px;
+	border:1px solid #fff;
+}
+
+
+
+
+.object [class*="col-"] {
+    padding: 0 !important;
+}
+
+.object .column{	
+	height: 100%;
+	position: initial;	
+}
+
+
+.object   .heat-up{
+	color:#d9534f;
+}
+.object  .heat-down{
+	color:#337ab7;
+}
+
+.object   .light-up{
+	color:#449d44;
+}
+.object   .light-down{
+	color:#d9534f;
+}
+
+.object .figure.warning{
+	color:#d9534f;
+}
+.object .figure.normal{
+	color:#449d44;
+}
+
+.object .figure .opened, .object .opened{
+	color:#d9534f;
+}
+.object .figure.closed, .object .closed{
+	color:#449d44;
+}
+.object .figure.active{
+	color:#f0ad4e;
+}
+
+.object .column-inner{
+	height: 100%;
+}
+
+.object .table,.object  .options-table{
+	height: 100%;
+	border: 0;
+	margin:0;
+}
+
+.object  .table td, .object  .options-table td{
+	vertical-align: middle;
+	border: 0;
+	padding: 0;
+}
+.object .name-table tr{
+	height: 50%;
+}
+.object .name-table tr td{
+	width: 50%;
+}
+
+
+.object .middle-column{
+	-webkit-box-shadow: inset 0px 0px 109px -31px rgba(255,255,255,0.2);
+	-moz-box-shadow: inset 0px 0px 109px -31px rgba(255,255,255,0.2);
+	box-shadow: inset 0 0 109px -31px rgba(255,255,255,0.2);
+}
+
+.object  .figure{
+	font-size: 2em;
+}
+
+.object-name .icon{
+	font-size: 1.5em;
+}
+.object-name .name{
+	font-size: 1em;
+}
+
+
+.object .light-bulb.active-10{
+	text-shadow: 0 0  1px rgba(241,221, 42, 0.1), 0 0  2px rgba(241,221, 42, 0.1), 0 0  3px rgba(241,221, 42, 0.1), 0 0  4px rgba(255,255,255,0.1), 0 0  7px rgba(255,255,255,0.1), 0 0 8px rgba(255,255,255,0.1), 0 0 10px rgba(255,255,255,0.1), 0 0 15px rgba(255,255,255,0.1);
+}
+.object .light-bulb.active-20{
+	text-shadow: 0 0  2px rgba(241,221, 42, 0.2), 0 0  4px rgba(241,221, 42, 0.2), 0 0  6px rgba(241,221, 42, 0.2), 0 0  8px rgba(255,255,255,0.2), 0 0 14px rgba(255,255,255,0.2), 0 0 16px rgba(255,255,255,0.2), 0 0 20px rgba(255,255,255,0.2), 0 0 30px rgba(255,255,255,0.2);
+}
+.object .light-bulb.active-30{
+	text-shadow: 0 0  3px rgba(241,221, 42, 0.3), 0 0  6px rgba(241,221, 42, 0.3), 0 0  9px rgba(241,221, 42, 0.3), 0 0 12px rgba(255,255,255,0.3), 0 0 21px rgba(255,255,255,0.3), 0 0 24px rgba(255,255,255,0.3), 0 0 30px rgba(255,255,255,0.3), 0 0 45px rgba(255,255,255,0.3);
+}
+.object .light-bulb.active-40{
+	text-shadow: 0 0  4px rgba(241,221, 42, 0.4), 0 0  8px rgba(241,221, 42, 0.4), 0 0 12px rgba(241,221, 42, 0.4), 0 0 16px rgba(255,255,255,0.4), 0 0 28px rgba(255,255,255,0.4), 0 0 32px rgba(255,255,255,0.4), 0 0 40px rgba(255,255,255,0.4), 0 0 60px rgba(255,255,255,0.4);
+}
+.object .light-bulb.active-50{
+	text-shadow: 0 0  5px rgba(241,221, 42, 0.5), 0 0 10px rgba(241,221, 42, 0.5), 0 0 15px rgba(241,221, 42, 0.5), 0 0 20px rgba(255,255,255,0.5), 0 0 35px rgba(255,255,255,0.5), 0 0 40px rgba(255,255,255,0.5), 0 0 50px rgba(255,255,255,0.5), 0 0 75px rgba(255,255,255,0.5);
+}
+.object .light-bulb.active-60{
+	text-shadow: 0 0  6px rgba(241,221, 42, 0.6), 0 0 12px rgba(241,221, 42, 0.6), 0 0 18px rgba(241,221, 42, 0.6), 0 0 24px rgba(255,255,255,0.6), 0 0 42px rgba(255,255,255,0.6), 0 0 48px rgba(255,255,255,0.6), 0 0 60px rgba(255,255,255,0.6), 0 0 90px rgba(255,255,255,0.6);
+}
+.object .light-bulb.active-70{
+	text-shadow: 0 0  7px rgba(241,221, 42, 0.7), 0 0 14px rgba(241,221, 42, 0.7), 0 0 21px rgba(241,221, 42, 0.7), 0 0 28px rgba(255,255,255,0.7), 0 0 49px rgba(255,255,255,0.7), 0 0 56px rgba(255,255,255,0.7), 0 0 70px rgba(255,255,255,0.7), 0 0 105px rgba(255,255,255,0.7);
+}
+.object .light-bulb.active-80{
+	text-shadow: 0 0  8px rgba(241,221, 42, 0.8), 0 0 16px rgba(241,221, 42, 0.8), 0 0 24px rgba(241,221, 42, 0.8), 0 0 32px rgba(255,255,255,0.8), 0 0 56px rgba(255,255,255,0.8), 0 0 64px rgba(255,255,255,0.8), 0 0 80px rgba(255,255,255,0.8), 0 0 120px rgba(255,255,255,0.8);
+}
+.object .light-bulb.active-90{
+	text-shadow: 0 0  9px rgba(241,221, 42, 0.9), 0 0 18px rgba(241,221, 42, 0.9), 0 0 27px rgba(241,221, 42, 0.9), 0 0 36px rgba(255,255,255,0.9), 0 0 63px rgba(255,255,255,0.9), 0 0 72px rgba(255,255,255,0.9), 0 0 90px rgba(255,255,255,0.9), 0 0 1350px rgba(255,255,255,0.9);
+}
+.object .light-bulb.active-100{
+	 text-shadow: 0 0 10px rgba(241,221, 42, 1), 0 0 20px rgba(241,221, 42, 1), 0 0 30px rgba(241,221, 42, 1), 0 0 40px rgba(255,255,255,1), 0 0 70px rgba(255,255,255,1), 0 0 80px rgba(255,255,255,1), 0 0 100px rgba(255,255,255,1), 0 0 150px rgba(255,255,255,1);
+}
+
+
+.object .light-bulb{
+    top: 46%;
+    bottom: auto;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    position: absolute;	
+}
+
+
+.object .transparent{
+	color: transparent !important;
+}
+
+

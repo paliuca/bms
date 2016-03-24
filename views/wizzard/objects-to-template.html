@@ -1,0 +1,70 @@
+<div class="container-fluid">
+	<div class="container-fluid navbar navbar-fixed-top">
+	    <div class="row text-center">
+	        <div class="col-xs-2 p0">
+	        </div>
+	        <div class="col-xs-8 p0">
+	        </div>
+	        <div class="col-xs-2 p0">	            
+	            <a class="home" ng-href="#/wizzard" ng-click="logout()">
+	                <i class="fa fa-sign-out"></i>
+	            </a>
+	        </div>
+	    </div> 
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="wizzard_block">
+				<div class="wizzard_block__body">
+					<div class="wizzard_block__body__header">Template</div>
+					<div class="wizzard_block__body__inner">
+						<div class="form-group wizzard_block__body__inner__buttons">
+							<div class="row">
+								<div class="form-group">
+									<button class="btn btn-success" ng-click="goToUsers()"><i class="fa fa-user"></i></button>
+									<button class="btn btn-success" ng-click="goToTemplates()"><i class="fa fa-files-o"></i></button>
+									<button class="btn btn-success" ng-click="goToObjectsToTemplate()"><i class="fa fa-file-o"></i></button>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-10 col-xs-offset-1">
+									<div class="wizzard_block__complex"  ng-show="template.type =='complex'">
+										<h4 class="wizzard_block__complex__title">{{template.name}}</h4>
+									    <div class="wizzard_block__complex__house" ng-repeat="house in templates.houses">
+											<h4 class="wizzard_block__complex__house__title">{{house.name}}</h4>
+											<div class="wizzard_block__complex__house" ng-repeat="floor in house.floors">
+												<h4 class="wizzard_block__complex__house__title">{{floor.name}}</h4>
+												<div class="wizzard_block__complex__house" ng-repeat="room in floor.rooms">
+													<h4 class="wizzard_block__complex__house__title">{{room.name}}</h4>
+												</div>
+											</div>
+									    </div>
+									</div>	
+									<div class="wizzard_block__complex"  ng-show="template.type =='house'">
+										<h4 class="wizzard_block__house__title">{{template.name}}</h4>
+									    <div class="wizzard_block__complex__house" ng-repeat="floor in templates.floors">
+									    	<h4 class="wizzard_block__complex__house__title">{{floor.name}}</h4>
+										    <div class="wizzard_block__complex__house" ng-repeat="room in floor.rooms">
+										    	<h4 class="wizzard_block__complex__house__title">{{room.name}}</h4>
+										    </div>
+									    </div>
+									</div>
+									<div class="wizzard_block__complex"  ng-show="template.type =='ap'">
+										<h4 class="wizzard_block__house__title">{{template.name}}
+											<button class="btn btn-success" ng-click="addObject()"><i class="fa fa-plus"></i></button>
+										</h4>
+									    <div class="wizzard_block__complex__house" ng-repeat="room in templates.rooms">
+									    	<h4 class="wizzard_block__complex__house__title">{{room.name}}
+									    		<button class="btn btn-success" ng-click="addObjectToApRoom(room.name)"><i class="fa fa-plus"></i></button>
+									    	</h4>
+									    </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

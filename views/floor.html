@@ -1,0 +1,50 @@
+<div class="container-fluid navbar navbar-fixed-top">
+    <div class="row text-center">
+        <div class="col-xs-3 p0">
+            <a class="home" ng-href="{{backUrl}}">
+                <i class="fa fa-chevron-left"></i>
+            </a>
+        </div>
+        <div class="col-xs-6 p0">
+            <a class="home">
+                {{title}}
+            </a>
+        </div>
+        <div class="col-xs-3 p0">
+            <a class="home" 
+                ng-class="{'pull-left':zones.length>1}"
+                ng-show="items.length>0"
+                ng-click="setfavorite = !setfavorite" 
+                ng-init="setfavorite = false">
+                <i class="fa fa-star-o favorite-star" ng-show="!setfavorite"></i>
+                <i class="fa fa-star favorite-star" ng-show="setfavorite"></i>
+            </a>
+            <a class="home order-bar"
+                ng-show="zones.length>1"
+                ng-class="{active:orderBar, inactive:!orderBar}"
+                ng-click="orderBar=!orderBar">
+                <i class="fa fa-bars"></i>
+            </a>            
+        </div>
+    </div> 
+</div>
+
+<div class="container-fluid">
+    <div class="row text-center">
+        <ul ng-sortable="treeConfig" class="sortable">
+            <li ng-repeat="item in zones | orderBy:'order'">
+                <div ng-class="{'col-lg-12' : orderBar, 'col-sm-6' : !orderBar}">
+                    <div class="row">
+                        <zone type="{{type}}" item="item" order-bar = "orderBar" floor="floor" zone="{{zone}}">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div ng-include="'./views/partials/objects.html'"></div>
+    </div>
+</div>

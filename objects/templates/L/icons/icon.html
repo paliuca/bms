@@ -1,0 +1,31 @@
+	<i ng-style="getStyle()" class="figure light-bulb {{ObjectIconService.getIcon(item.category,item.icon_id).name}}"  
+		ng-class="{
+			'active-10': item.live.ModuleValue >  0 && item.live.ModuleValue <= 10,
+			'active-20': item.live.ModuleValue > 10 && item.live.ModuleValue <= 20,
+			'active-30': item.live.ModuleValue > 20 && item.live.ModuleValue <= 30,
+			'active-40': item.live.ModuleValue > 30 && item.live.ModuleValue <= 40,
+			'active-50': item.live.ModuleValue > 40 && item.live.ModuleValue <= 50,
+			'active-60': item.live.ModuleValue > 50 && item.live.ModuleValue <= 60,
+			'active-70': item.live.ModuleValue > 60 && item.live.ModuleValue <= 70,
+			'active-80': item.live.ModuleValue > 70 && item.live.ModuleValue <= 80,
+			'active-90': item.live.ModuleValue > 80 && item.live.ModuleValue <= 90,
+			'active-100': item.live.ModuleValue > 90 && item.live.ModuleValue <= 100,
+			'active-round-100': item.live.ModuleValue == 100,
+			'active-round-75': item.live.ModuleValue >= 75 && item.live.ModuleValue < 100,
+			'active-round-50': item.live.ModuleValue >= 50 && item.live.ModuleValue < 75,
+			'active-round-25': item.live.ModuleValue > 0 && item.live.ModuleValue < 50}">
+	</i>
+	    <div round-progress
+	    max="100"
+	    current="item.live.ModuleValue"
+	    color="#f0ad4e"
+	    bgcolor="#fff"
+	    radius="25"
+	    semi="false"
+	    rounded="true"
+	    stroke="0.8"
+	    clockwise="clockwise"
+	    responsive="false"
+	    duration = "800">
+
+

@@ -1,0 +1,28 @@
+<div class="row text-center">
+	<div class="object">
+		<div ng-include="'objects/templates/partials/edit-object-form.html'"></div>
+		<div class="col-xs-6 column">
+			<table class="table name-table">
+				<tr ng-show="room=='home' || room == 'type'">
+					<td>
+						<div ng-include="'objects/templates/partials/object-name.html'"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-xs-6 column">
+			<table class="table name-table">
+				<tr>
+					<td>
+						<div ng-include="'objects/templates/L/icons/index.html'"></div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

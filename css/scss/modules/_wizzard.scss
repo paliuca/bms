@@ -1,0 +1,221 @@
+$black: rgba(0, 0, 0, 1);
+$blue: #5F9EDF;
+$red: #d9534f;
+.subtitle{
+	padding: 10px;
+	margin:0px;
+	font-family: 'Roboto', sans-serif;
+	color: transparentize($black, 0.3);
+}
+.wizzard_block span, .wizzard_block td{
+	color:#000;
+}
+
+.wizzard_block {
+	background-color: #fff;
+	margin-bottom:10px;
+
+	ul{		
+		background-color: transparentize($black, 0.9);
+		padding: 10px;		
+		list-style-type:none;
+		li{
+			color: transparentize($black, 0.3);
+			margin:5px 0;
+			padding:5px;
+			background-color:#ccc;
+		}
+	}
+
+
+
+	@include e('body'){
+		@include e('header'){
+		    padding: 10px;	    
+		    text-align: center;
+		    background: $blue;
+		    font-size:20px;
+		    font-family: 'Roboto', sans-serif;
+		}
+
+		@include e('inner'){
+		    padding: 15px;		    
+			.btn{
+				border-radius:0;
+			}		
+			.btn-success{
+				background-color: transparentize($blue, 0.2);
+				border-color:$blue;
+			}
+
+			label{
+				color: transparentize($black, 0.3);
+			}	
+			@include e('buttons'){
+			    margin-top:15px;
+			}				    
+		}	
+
+	}
+
+	@include e('objects'){
+		border:1px solid transparent;
+		@include e('header'){
+			font-size:20px;
+			color:$black;
+			padding-left:10px;
+			cursor:pointer;
+		}		
+	}
+	@include e('complex'){
+		border: 1px solid rgba(0, 0, 0, 0.5);
+		@include e('title'){
+			@extend .subtitle;
+		}	
+		@include e('house'){
+			margin-left:10px;
+			padding-bottom:10px;
+			margin-bottom:10px;
+			margin-right:10px;		
+			border: 1px solid rgba(0, 0, 0, 0.5);
+			@include e('title'){
+				@extend .subtitle;
+			}
+			@include e('floor'){
+				border: 1px solid rgba(0, 0, 0, 0.5);
+				margin-left:10px;
+				padding-bottom:10px;
+				margin-bottom:10px;
+				margin-right:10px;
+
+				@include e('title'){
+					@extend .subtitle;
+				}
+
+				@include e('room'){
+					border: 1px solid rgba(0, 0, 0, 0.5);
+					margin-left:10px;		
+					margin-right:10px;
+					@include e('title'){
+						@extend .subtitle;
+					}
+					@include e('objects'){
+						border: 1px solid rgba(0, 0, 0, 0.5);
+						margin:0 10px 10px;
+					}				
+				}	    
+			}
+		}
+	}
+
+	@include e('house'){
+		border: 1px solid rgba(0, 0, 0, 0.5);
+		@include e('title'){
+			@extend .subtitle;
+		}
+		@include e('floor'){
+			border: 1px solid rgba(0, 0, 0, 0.5);
+			margin-left:10px;
+			padding-bottom:10px;
+			margin-bottom:10px;
+			margin-right:10px;
+
+			@include e('title'){
+				@extend .subtitle;
+			}
+
+			@include e('room'){
+				border: 1px solid rgba(0, 0, 0, 0.5);
+				margin-left:10px;		
+				margin-right:10px;
+				@include e('title'){
+					@extend .subtitle;
+				}
+				@include e('objects'){
+					border: 1px solid rgba(0, 0, 0, 0.5);
+					margin:0 10px 10px;
+				}				
+			}	    
+		}
+	}
+
+	@include e('floor'){
+		border: 1px solid rgba(0, 0, 0, 0.5);		
+		@include e('title'){
+			@extend .subtitle;
+		}
+		@include e('room'){
+			border: 1px solid rgba(0, 0, 0, 0.5);
+			margin-left:10px;
+			padding-bottom:10px;
+			margin-bottom:10px;
+			margin-right:10px;		
+			@include e('title'){
+				@extend .subtitle;
+			}		
+			@include e('objects'){
+				border: 1px solid rgba(0, 0, 0, 0.5);
+				margin:0 10px 10px;
+			}		
+		}
+	}
+
+	@include e('room'){
+		border: 1px solid rgba(0, 0, 0, 0.5);		
+		@include e('title'){
+			@extend .subtitle;
+		}
+		@include e('objects'){
+			border: 1px solid rgba(0, 0, 0, 0.5);
+			margin:0 10px 10px;
+		}		
+	}
+
+}
+
+.houses{
+	color:$black;
+	margin-bottom:20px;
+	@include e('house'){
+		padding: 10px;
+		border:1px solid transparentize($black, 0.5);
+		margin-bottom:10px;
+
+		@include e('delete'){
+			border:1px solid transparentize($black, 0.8);
+			padding:5px;
+		}
+
+		@include e('floor'){
+			
+			padding:5px 0;
+
+			@include e('header'){
+				padding-left:10px;
+			}		
+		}
+		@include e('room'){
+			
+			padding:5px 0;
+
+			@include e('header'){
+				padding-left:20px;
+			}
+			@include m('room'){
+				
+				padding:5px 0;
+
+				@include e('header'){
+					padding-left:30px;
+				}
+			}			
+		}	
+	}	
+}
+
+.select-icon{
+	color:$blue;
+	@include m('active'){
+		color:$red;
+	}
+}

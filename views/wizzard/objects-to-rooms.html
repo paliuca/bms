@@ -1,0 +1,150 @@
+<div class="container-fluid">
+	<div class="container-fluid navbar navbar-fixed-top">
+	    <div class="row text-center">
+	        <div class="col-xs-2 p0">
+	        </div>
+	        <div class="col-xs-8 p0">
+	        </div>
+	        <div class="col-xs-2 p0">
+	            <a class="home" ng-href="#/wizzard" ng-click="logout()">
+	                <i class="fa fa-sign-out"></i>
+	            </a>
+	        </div>
+	    </div> 
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="wizzard_block">
+				<div class="wizzard_block__body">
+					<div class="wizzard_block__body__header">Organise controlls for {{user.name}}</div>
+					<div class="wizzard_block__body__inner">
+						<div class="form-group wizzard_block__body__inner__buttons">
+							<div ng-include="'/views/wizzard/menu.html'"></div>
+						</div>																		
+						<div class="row">
+							<div class="col-xs-6">												
+								<div class="wizzard_block__objects">
+									<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+									  <div class="panel panel-default" ng-repeat="(modulename, objects) in modules">
+									    <div class="panel-heading" role="tab" id="headingOne">
+									      <h4 class="panel-title">
+									        <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapse_{{modulename}}" aria-expanded="true" aria-controls="collapseOne">
+									          {{modulename}}
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="collapse_{{modulename}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+									      <div class="panel-body">
+												<ul ng-sortable="{ group: 'objs'}" class="list-unstyled">
+													<li ng-repeat="object in objects">
+														<span class="drag-handle"><i class="fa fa-bars"></i></span>
+														{{object.HAModuleId}} - {{object.HAModuleName}} - {{object.ModuleItem}} - {{object.ItemDescription}}
+													</li>
+												</ul>
+									      </div>
+									    </div>
+									  </div>
+									</div>									
+									<!-- <ul ng-sortable="{ group: 'objs'}" class="list-unstyled" ng-repeat="(modulename, objects) in modules">
+										<li ng-repeat="object in objects">
+											<span class="drag-handle"><i class="fa fa-bars"></i></span>
+											{{object.HAModuleId}} - {{object.HAModuleName}} - {{object.ModuleItem}} - {{object.ItemDescription}}
+										</li>
+									</ul> -->
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div>
+									<div class="wizzard_block__complex"  ng-show="user.type =='complex'">
+										<h4 class="wizzard_block__complex__title">{{items.name}}</h4>
+									    <ul ng-sortable="items.eachConfig" class="wizzard_block__floor__room__objects">
+											<li ng-repeat="object in items.objects">												
+												{{object.ModuleItem}} - {{object.ItemDescription}}
+												<span class="fa fa-trash text-danger btn btn-sm pull-right" ng-click="deleteObject(items.objects, object)"></span>
+											</li>
+									    </ul>										
+										<div class="wizzard_block__complex__house" ng-repeat="house in items.houses" >
+											<h4 class="wizzard_block__complex__house__title">{{house.name}}</h4>
+										    <ul ng-sortable="house.eachConfig" class="wizzard_block__floor__room__objects">
+												<li ng-repeat="object in house.objects">													
+													{{object.ModuleItem}} - {{object.ItemDescription}}
+													<span class="fa fa-trash text-danger btn btn-sm pull-right" ng-click="deleteObject(house.objects, object)"></span>
+												</li>
+										    </ul>											
+											<div class="wizzard_block__house__floor"  ng-repeat="floor in house.floors">
+												<h4 class="wizzard_block__house__floor__title">{{floor.name}}</h4>
+											    <ul ng-sortable="floor.eachConfig" class="wizzard_block__floor__room__objects">
+													<li ng-repeat="object in floor.objects">														
+														{{object.ModuleItem}} - {{object.ItemDescription}}
+														<span class="fa fa-trash text-danger btn btn-sm pull-right" ng-click="deleteObject(floor.objects, object)"></span>
+													</li>
+											    </ul>											
+												<div class="wizzard_block__house__floor__room"  ng-repeat="room in floor.rooms">
+													<h4 class="wizzard_block__house__floor__room__title">{{room.name}}</h4>
+												    <ul ng-sortable="room.eachConfig" class="wizzard_block__house__floor__room__objects">
+														<li ng-repeat="object in room.objects">															
+															{{object.ModuleItem}} - {{object.ItemDescription}}
+															<span class="fa fa-trash text-danger btn btn-sm pull-right" ng-click="deleteObject(room.objects, object)"></span>
+														</li>
+												    </ul>
+												</div>
+											</div>
+										</div>									
+									</div>									
+									<div class="wizzard_block__house"  ng-show="user.type =='house'">
+										<h4 class="wizzard_block__house__title">{{items.name}}</h4>
+									    <ul ng-sortable="items.eachConfig" class="wizzard_block__floor__room__objects">
+											<li ng-repeat="object in items.objects">												
+												{{object.ModuleItem}} - {{object.ItemDescription}}
+												<span class="fa fa-trash text-danger btn btn-sm pull-right" ng-click="deleteObject(items.objects, object)"></span>
+											</li>
+									    </ul>										
+										<div class="wizzard_block__house__floor" ng-repeat="floor in items.floors">
+											<h4 class="wizzard_block__floor__title">{{floor.name}}</h4>
+										    <ul ng-sortable="floor.eachConfig" class="wizzard_block__floor__room__objects">
+												<li ng-repeat="object in floor.objects">													
+													{{object.ModuleItem}} - {{object.ItemDescription}}
+													<span class="fa fa-trash text-danger btn btn-sm pull-right" ng-click="deleteObject(floor.objects, object)"></span>
+												</li>
+										    </ul>										
+											<div class="wizzard_block__floor__room"  ng-repeat="room in floor.rooms">
+												<h4 class="wizzard_block__floor__room__title">{{room.name}}</h4>
+											    <ul ng-sortable="room.eachConfig" class="wizzard_block__floor__room__objects">
+													<li ng-repeat="object in room.objects">														
+														{{object.ModuleItem}} - {{object.ItemDescription}}
+														<span class="fa fa-trash text-danger btn btn-sm pull-right" ng-click="deleteObject(room.objects, object)"></span>
+													</li>
+											    </ul>
+											</div>
+										</div>
+									</div>
+									<div class="wizzard_block__house"  ng-show="user.type =='ap'">
+										<h4 class="wizzard_block__house__title">{{items.name}}</h4>
+									    <ul ng-sortable="items.eachConfig" class="wizzard_block__floor__room__objects">
+											<li ng-repeat="object in items.objects">												
+												{{object.ModuleItem}} - {{object.ItemDescription}}
+												<span class="fa fa-trash text-danger btn btn-sm pull-right" ng-click="deleteObject(items.objects, object)"></span>
+											</li>
+									    </ul>
+										<div class="wizzard_block__floor__room"  ng-repeat="room in items.rooms">
+											<h4 class="wizzard_block__floor__room__title">{{room.name}}</h4>
+										    <ul ng-sortable="room.eachConfig" class="wizzard_block__floor__room__objects">
+												<li ng-repeat="object in room.objects">													
+													{{object.ModuleItem}} - {{object.ItemDescription}}
+													<span class="fa fa-trash text-danger btn btn-sm pull-right" ng-click="deleteObject(room.objects, object)"></span>
+												</li>
+										    </ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
